@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;650;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* Base Body Glassmorphism Mesh Background Layer */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f1f5f9;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(20, 184, 166, 0.12) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: #1e293b;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Glassmorphism Classes with standard cross-browser support */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.08) !important;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(16px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 4px 20px 0 rgba(15, 23, 42, 0.06) !important;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card-hover:hover {
+  background: rgba(255, 255, 255, 0.8) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px 0 rgba(15, 23, 42, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.glass-sidebar {
+  background: rgba(15, 23, 42, 0.78) !important;
+  backdrop-filter: blur(24px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(150%) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 4px 0 24px 0 rgba(0, 0, 0, 0.15) !important;
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-b: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.65) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.1) !important;
+  transition: all 0.20s ease-in-out !important;
+}
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-color: rgba(13, 148, 136, 0.45) !important;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1) !important;
+  outline: none;
+}
+
+.glass-button-primary {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.85), rgba(20, 184, 166, 0.85)) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 15px 0 rgba(13, 148, 136, 0.2) !important;
+  color: white !important;
+  transition: all 0.25s ease !important;
+}
+.glass-button-primary:hover {
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.95), rgba(20, 184, 166, 0.95)) !important;
+  box-shadow: 0 6px 20px 0 rgba(13, 148, 136, 0.35) !important;
+  transform: translateY(-1px);
+}
+
+.glass-button-secondary {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(15, 23, 42, 0.08) !important;
+  color: #334155 !important;
+  transition: all 0.25s ease !important;
+}
+.glass-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-color: rgba(13, 148, 136, 0.2) !important;
+  color: #0f172a !important;
+}
+
+/* Glass table structure matching */
+.glass-table-row {
+  transition: background-color 0.2s ease;
+}
+.glass-table-row:hover {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Premium Highlight / Glows */
+.glass-glow-cyan {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0) 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+.glass-glow-indigo {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+/* Extra premium touch: reflection highlights on elements */
+.reflection-highlight {
+  position: relative;
+  overflow: hidden;
+}
+.reflection-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  opacity: 0;
+}
+.reflection-highlight:hover::before {
+  left: 125%;
+  opacity: 1;
+}
+
+/* ==========================================
+   GLOBAL DARK MODE THEMING AND RECONFIGURATIONS
+   ========================================== */
+
+/* Dark Mode Global Background Override */
+html.dark body {
+  background-color: #090e1a !important;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.22) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(56, 189, 248, 0.18) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(99, 102, 241, 0.18) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba(20, 184, 166, 0.22) 0px, transparent 55%) !important;
+  color: #f8fafc !important;
+}
+
+/* Glass panel & cards overrides */
+html.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.78) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35) !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .glass-card {
+  background: rgba(15, 23, 42, 0.70) !important;
+  border-color: rgba(255, 255, 255, 0.07) !important;
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.25) !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .glass-card-hover:hover {
+  background: rgba(15, 23, 42, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 0 12px 30px 0 rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .glass-sidebar {
+  background: rgba(10, 15, 30, 0.85) !important;
+  border-right-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark .glass-header {
+  background: rgba(15, 23, 42, 0.70) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.dark .glass-input {
+  background: rgba(15, 23, 42, 0.70) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark .glass-input:focus {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-color: rgba(20, 184, 166, 0.6) !important;
+}
+
+html.dark .glass-button-secondary {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #e2e8f0 !important;
+}
+
+html.dark .glass-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+html.dark .glass-table-row:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* Fallbacks for general background utility classes */
+html.dark .bg-white {
+  background-color: rgba(15, 23, 42, 0.7) !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: rgba(10, 15, 30, 0.9) !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: rgba(15, 23, 42, 0.75) !important;
+}
+
+html.dark .bg-slate-200 {
+  background-color: rgba(15, 23, 42, 0.5) !important;
+}
+
+html.dark .bg-slate-50\/50 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+html.dark .bg-slate-50\/60 {
+  background-color: rgba(15, 23, 42, 0.4) !important;
+}
+
+/* Borders in Dark Mode */
+html.dark .border-slate-100,
+html.dark .border-slate-150,
+html.dark .border-slate-200,
+html.dark .border-slate-300 {
+  border-color: rgba(255, 255, 255, 0.09) !important;
+}
+
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Font and text color maps for extreme readability */
+html.dark .text-slate-900 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-855,
+html.dark .text-slate-850,
+html.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+html.dark .text-slate-750,
+html.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-slate-650,
+html.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-slate-450,
+html.dark .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.dark .text-slate-300 {
+  color: #475569 !important;
+}
+
+/* Hover state overrides */
+html.dark .hover\:bg-slate-50:hover {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+}
+
+html.dark .hover\:bg-slate-100:hover {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+/* Placeholder and inputs in Dark Mode */
+html.dark ::placeholder {
+  color: #64748b !important;
+}
+
+html.dark input, 
+html.dark select, 
+html.dark textarea {
+  color: #f1f5f9 !important;
+  background-color: rgba(10, 15, 30, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Special calendar and picker styling support */
+html.dark .react-calendar {
+  background: rgba(15, 23, 42, 0.9) !important;
+  color: #f1f5f9 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Scrollbars in Dark Mode */
+html.dark ::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
